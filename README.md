@@ -6,8 +6,7 @@ This README would normally document whatever steps are necessary to get your app
 
 #### Run Kafka On Docker 
 1. Install Docker on Your Machine
-2. Run Kafka Cluster
-3. Create docker network 
+2. Create docker network 
 ```
 docker network create app-tier --driver bridge
 ```
@@ -18,7 +17,7 @@ docker run -d --name zookeeper --network app-tier -e ALLOW_ANONYMOUS_LOGIN=yes -
 4. Run Kafka Node
 
 ```
-docker run -d --name kafka1 --network app-tier -e KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181 -e ALLOW_PLAINTEXT_LISTENER=yes -p 9092:9092 bitnami/kafka:latest
+docker run -d --name kafka1 --network app-tier -e KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181 -e ALLOW_PLAINTEXT_LISTENER=yes -e KAFKA_MESSAGE_MAX_BYTES=2000000 -p 9092:9092 bitnami/kafka:latest
 ```
 
 ### Run Stream Application
