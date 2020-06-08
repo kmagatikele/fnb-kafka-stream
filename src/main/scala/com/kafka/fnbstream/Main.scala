@@ -89,9 +89,9 @@ object Main {
 
   }
 
-  def enrichTransaction(transaction: Transaction): Transaction ={
-    transaction.
-  }
+//  def enrichTransaction(transaction: Transaction): Transaction ={
+//    transaction.
+//  }
 
 
   def buildTransaction(): Transaction ={

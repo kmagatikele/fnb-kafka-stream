@@ -2,20 +2,33 @@
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
 ### Steps to Run this Application
 
 #### Run Kafka On Docker 
 1. Install Docker on Your Machine
-2. 
+2. Run Kafka Cluster
+3. Create docker network 
+```
+docker network create app-tier --driver bridge
+```
+3. Run Zookeeper
+```
+docker run -d --name zookeeper --network app-tier -e ALLOW_ANONYMOUS_LOGIN=yes -p 2181:2181 bitnami/zookeeper:late
+```
+4. Run Kafka Node
 
-#####Build Image
-docker build -t fnb-kafka-stream .
+```
+docker run -d --name kafka1 --network app-tier -e KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181 -e ALLOW_PLAINTEXT_LISTENER=yes -p 9092:9092 bitnami/kafka:latest
+```
 
-#####Run Images
-docker run -d -e KAFKAENDPOINT=10.0.20.35:9094 -e KAFKATOPIC=keletso-test -e KAFKAGROUPID=keletso-con --name fnb-stream fnb-kafka-stream:latest
+### Run Stream Application
+1. Login to my docker hub 
+```
+docker login --username=keletsoox --password=keletso1993
+```
+2. Run Application on Docker  
+```
+docker run -d -e KAFKAENDPOINT=10.0.20.35:9094 -e KAFKATOPIC=pub-original-tran -e KAFKAGROUPID=consu-original-trans --name fnb-stream keletsoox/fnb-kafka-stream
+```
+
+##Please note i was not able to do enrishment on the consumed data due to time
