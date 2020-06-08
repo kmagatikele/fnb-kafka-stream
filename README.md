@@ -28,7 +28,8 @@ docker login --username=keletsoox --password=keletso1993
 ```
 2. Run Application on Docker  
 ```
-docker run -d -e KAFKAENDPOINT=10.0.20.35:9094 -e KAFKATOPIC=pub-original-tran -e KAFKAGROUPID=consu-original-trans --name fnb-stream keletsoox/fnb-kafka-stream
+docker run -d -e KAFKAENDPOINT=localhost:9094 -e KAFKATOPIC=pub-original-tran -e KAFKAGROUPID=consu-original-trans --name fnb-stream keletsoox/fnb-kafka-stream
 ```
 
+You can change the KAFKAENDPOINT based on where kafka docker its running 
 ##Please note i was not able to do enrishment on the consumed data due to time
