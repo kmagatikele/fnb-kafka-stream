@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 #REM ******************************************************************************
 #REM ----------------------------------------------------------
 #REM *   Console Output for Monitor  						**
@@ -9,6 +9,6 @@ echo "01 Kafka endpoint is : $KAFKAENDPOINT"
 echo "02 Kafka Topic is : $KAFKATOPIC"
 echo "03 Kafka GroupId is : $KAFKAGROUPID"
 
-java -Xms64m -Xmx2G -jar KafkaToCassandra.jar $KAFKAENDPOINT $KAFKATOPIC $KAFKAGROUPID
+java -Xms64m -Xmx2G -jar fnb-kafka-stream.jar $KAFKAENDPOINT $KAFKATOPIC $KAFKAGROUPID
 
 

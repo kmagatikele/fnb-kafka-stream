@@ -1,7 +1,6 @@
 package com.kafka.fnbstream
 import java.util
 import java.util.{Collections, Properties}
-
 import com.google.gson.Gson
 import org.apache.kafka.clients.consumer.{ConsumerRecord, ConsumerRecords, KafkaConsumer}
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord, RecordMetadata}
@@ -80,6 +79,7 @@ object Main {
         println("value " + record.value )
 
         var consumTransJson = record.value
+        var consumTrans = gson.fromJson(consumTransJson, classOf[Transaction])
 
       }
     }
@@ -87,6 +87,10 @@ object Main {
     producer.close()
     consumer.close()
 
+  }
+
+  def enrichTransaction(transaction: Transaction): Transaction ={
+    transaction.
   }
 
 
