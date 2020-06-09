@@ -12,12 +12,12 @@ docker network create app-tier --driver bridge
 ```
 3. Run Zookeeper
 ```
-docker run -d --name zookeeper --network app-tier -e ALLOW_ANONYMOUS_LOGIN=yes -p 2181:2181 bitnami/zookeeper:late
+docker run -d --name zookeeper --network app-tier -e ALLOW_ANONYMOUS_LOGIN=yes -p 2181:2181 bitnami/zookeeper:latest
 ```
 4. Run Kafka Node
 
 ```
-docker run -d --name kafka1 --network app-tier -e KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181 -e ALLOW_PLAINTEXT_LISTENER=yes -e KAFKA_MESSAGE_MAX_BYTES=2000000 -p 9092:9092 bitnami/kafka:latest
+docker run -d --name kafka1 --network app-tier -e KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181 -e ALLOW_PLAINTEXT_LISTENER=yes -e KAFKA_MESSAGE_MAX_BYTES=2000000 -e KAFKA_CREATE_TOPICS="pub-original-tran:1:1:compact" -p 9092:9092 bitnami/kafka:latest
 ```
 
 ### Run Stream Application

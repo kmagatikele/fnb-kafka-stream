@@ -2,7 +2,7 @@ name := "fnb-kafka-stream"
 
 version := "0.1"
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.0"
 
 libraryDependencies ++= Seq(
   "org.apache.kafka" % "kafka-clients" % "0.10.2.1",

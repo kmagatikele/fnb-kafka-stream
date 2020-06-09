@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" build-on-make="true" name="fnb-kafka-stream:jar">
-    <output-path>$PROJECT_DIR$/app</output-path>
+    <output-path>$PROJECT_DIR$/docker/app</output-path>
     <root id="archive" name="fnb-kafka-stream.jar">
       <element id="module-output" name="fnb-kafka-stream" />
       <element id="module-output" name="fnb-kafka-stream-build" />
